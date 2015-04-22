@@ -59,3 +59,6 @@ of rules.  Keep in mind the code here is an example **only** and you'll need
 to build rules that work for your own site.  The code provided is specifically
 geared for the Fish Atlas pages and is hard-coding the transformations because
 that's the only way it's possible.
+
+The example Fish Atlas site and content is copyright the original creators and
+James Cook University & is provided for example purposes only.
