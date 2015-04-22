@@ -1,0 +1,15 @@
+Paste==1.7.5.1
+PasteDeploy==1.5.2
+PasteScript==1.7.5
+WebOb==1.4.1
+argparse==1.2.1
+diazo==1.1.1
+experimental.cssselect==0.3
+future==0.14.3
+lxml==3.4.3
+paster==0.8
+repoze.xmliter==0.6
+six==1.9.0
+uWSGI==2.0.10
+waitress==0.8.9
+wsgiref==0.1.2

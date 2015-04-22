@@ -1,0 +1,59 @@
+<rules
+    xmlns="http://namespaces.plone.org/diazo"
+    xmlns:css="http://namespaces.plone.org/diazo/css"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+    <theme href="theme.html" />
+
+    <replace css:theme="title" css:content="title" />
+
+    <strip css:content="blockquote" />
+    <drop css:content="*" attributes="style" />
+    <strip css:content="col" />
+
+    <!-- Strip empty tags -->
+    <drop content="span[not(*) and not(normalize-space())]"/>
+    <drop content="p[not(*) and not(normalize-space())]"/>
+    <drop content="a[not(*) and not(normalize-space())]"/>
+
+    <!-- Responsive images on pages without image maps -->
+    <rules css:if-not-content="map">
+        <drop css:content="img" attributes="width height" />
+        <after css:theme-children="head">
+            <style>img { max-width: 100%; height:auto; display:block;} </style>
+        </after>
+    </rules>
+
+    <!-- Tables -->>
+    <replace content="//table/tr[1]/td">
+        <th><xsl:apply-templates /></th>
+    </replace>
+    <replace css:content="table">
+        <table class="table table-striped table-hover table-condensed"><xsl:apply-templates /></table>
+    </replace>
+
+    <replace css:content="span.style27">
+        <em><xsl:apply-templates select=".//text()" /></em>
+    </replace>
+    <replace css:content=".style17 > .style24">
+        <h1><xsl:apply-templates select=".//text()" /></h1>
+    </replace>
+    <drop css:content="p.style17:nth-child(1) br, .style25 br" />
+    <replace css:content="p.style17:nth-child(1), .style25:not(.style18)">
+        <h1><xsl:apply-templates /></h1>
+    </replace>
+    <replace content="//p[@class='style28'][1]">
+        <p class="lead"><xsl:apply-templates select="./text()"/></p>
+    </replace>
+
+
+    <!-- These rules pick up nested tables... -->
+    <replace css:theme-children="#left" content="//*[@class='style11']/table/tr[2]/td[1]/*"/>
+    <replace css:theme-children="#content" content="//*[@class='style11']/table/tr[2]/td[2]/*"/>
+
+    <drop css:content="*" attributes="class" />
+    <drop css:content="h1 br"/>
+    <drop css:content="td" attributes="width height valign" />
+    <drop css:content="tr" attributes="height" />
+
+</rules>

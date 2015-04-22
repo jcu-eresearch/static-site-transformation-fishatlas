@@ -1,0 +1,21 @@
+{
+  "name": "fishatlas",
+  "version": "0.0.1",
+  "authors": [
+    "David Beitey <david@davidjb.com>"
+  ],
+  "main": "Index.htm",
+  "license": "None",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "resources",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.4"
+  }
+}
